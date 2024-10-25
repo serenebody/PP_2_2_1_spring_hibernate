@@ -1,8 +1,10 @@
 package hiber;
 
 import hiber.config.AppConfig;
+import hiber.model.Car;
 import hiber.model.User;
 import hiber.service.UserService;
+import org.hibernate.Cache;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import java.sql.SQLException;
@@ -15,10 +17,27 @@ public class MainApp {
 
       UserService userService = context.getBean(UserService.class);
 
-      userService.add(new User("User1", "Lastname1", "user1@mail.ru"));
-      userService.add(new User("User2", "Lastname2", "user2@mail.ru"));
-      userService.add(new User("User3", "Lastname3", "user3@mail.ru"));
-      userService.add(new User("User4", "Lastname4", "user4@mail.ru"));
+      User user1 = new User("user1", "user1", "user1@mail.ru");
+      User user2 = new User("user2", "user2", "user2@mail.ru");
+      User user3 = new User("user3", "user3", "user3@mail.ru");
+      User user4 = new User("user4", "user4", "user4@mail.ru");
+
+      Car BMW = new Car("BMW", 2020);
+      Car HONDA = new Car("HONDA", 1999);
+      Car AUDI = new Car("AUDI", 2024);
+      Car LADA = new Car("LADA", 1988);
+
+      user1.setCar(BMW);
+      user2.setCar(HONDA);
+      user3.setCar(AUDI);
+      user4.setCar(LADA);
+
+      userService.add(user1);
+      userService.add(user2);
+      userService.add(user3);
+      userService.add(user4);
+
+      userService.findBySeriesAndModel(2020,"BMW");
 
       List<User> users = userService.listUsers();
       for (User user : users) {
