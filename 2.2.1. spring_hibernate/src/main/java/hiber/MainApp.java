@@ -4,7 +4,6 @@ import hiber.config.AppConfig;
 import hiber.model.Car;
 import hiber.model.User;
 import hiber.service.UserService;
-import org.hibernate.Cache;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import java.sql.SQLException;
@@ -45,6 +44,8 @@ public class MainApp {
          System.out.println("First Name = "+user.getFirstName());
          System.out.println("Last Name = "+user.getLastName());
          System.out.println("Email = "+user.getEmail());
+         System.out.println("Model = "+user.getCar().getModel());
+         System.out.println("Series = "+user.getCar().getSeries());
          System.out.println();
       }
 

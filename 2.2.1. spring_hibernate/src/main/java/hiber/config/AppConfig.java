@@ -14,7 +14,6 @@ import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.sql.DataSource;
-import javax.sql.rowset.CachedRowSet;
 import java.util.Properties;
 
 
