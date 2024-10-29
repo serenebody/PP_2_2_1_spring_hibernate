@@ -38,7 +38,7 @@ public class MainApp {
 
       userService.findBySeriesAndModel(2020,"BMW");
 
-      List<User> users = userService.listUsers();
+      List<User> users = userService.getListUsers();
       for (User user : users) {
          System.out.println("Id = "+user.getId());
          System.out.println("First Name = "+user.getFirstName());
